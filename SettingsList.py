@@ -3483,6 +3483,7 @@ class SettingInfos:
             '30_skulltulas':  'House of Skulltula: 30',
             '40_skulltulas':  'House of Skulltula: 40',
             '50_skulltulas':  'House of Skulltula: 50',
+            '100_skulltulas':  'House of Skulltula: 100',
             'frogs2':         'Frogs Ocarina Game',
             'mask_shop':  'Shuffled Mask Shop',
             'unique_merchants':  'Unique Merchants',
