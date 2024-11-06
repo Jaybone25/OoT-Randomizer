@@ -2425,7 +2425,7 @@ class SettingInfos:
         gui_tooltip    = '''\
             Enabling this adds the repeatable Huge Rupee reward
             from the Skulltula house to the item pool. This is obtained
-            by collectioning all 100 gold skulltulas.
+            by collecting all 100 gold skulltulas.
         ''',
         default        = False,
         shared         = True,
