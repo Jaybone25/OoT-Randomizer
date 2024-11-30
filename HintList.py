@@ -1908,6 +1908,15 @@ misc_location_hint_table: dict[str, dict[str, Any]] = {
     },
 }
 
+misc_dual_hint_table: dict[str, dict[str, Any]] = {
+    'mask_shop_dual': {
+        'id': 0x900A,
+        'hint_location': 'Deku Theater Skull Mask, Deku Theater Mask of Truth',
+        'item_location': 'Deku Theater Skull Mask, Deku Theater Mask of Truth',
+        'location_text': "Test \x05\x42{item_1}\x05\x40 \x05\x42{item_1}\x05\x40",
+    },
+}
+
 # Separate table for goal names to avoid duplicates in the hint table.
 # Link's Pocket will always be an empty goal, but it's included here to
 # prevent key errors during the dungeon reward lookup.

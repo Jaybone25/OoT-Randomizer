@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING, Optional
 from urllib.error import URLError, HTTPError
 
 from HintList import Hint, get_hint, get_multi, get_hint_group, get_upgrade_hint_list, hint_exclusions, \
-    misc_item_hint_table, misc_location_hint_table
+    misc_item_hint_table, misc_location_hint_table, misc_dual_hint_table
 from Item import Item, make_event_item
 from ItemList import REWARD_COLORS
 from Messages import Message, COLOR_MAP, update_message_by_id
@@ -1820,6 +1820,25 @@ def build_misc_location_hints(world: World, messages: list[Message]) -> None:
                                                                   world.settings.clearer_hints).text)
 
         update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), 0x23)
+
+def build_misc_dual_hints(world: World, messages: list[Message]) -> None:
+    for hint_type, data in misc_dual_hint_table.items():
+     #   text = data['location_fallback']
+        if hint_type in world.settings.misc_hints:
+            #if hint_type in world.misc_dual_hint_items:
+                item = items
+                print(item)
+                #items = []
+                #items = items.append(item)
+                #print(items)
+                #item_1 = items[0]
+                #item_2 = items[1]
+                #print(item_1)
+               # print(item_2)
+                #text = data['location_text'].format(item_1=get_hint(get_item_generic_name(item_1),
+                 #                                                 world.settings.clearer_hints).text)
+
+#                update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), 0x0207)
 
 
 def get_raw_text(string: str) -> str:

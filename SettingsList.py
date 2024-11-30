@@ -3501,6 +3501,7 @@ class SettingInfos:
             'frogs2':         'Frogs Ocarina Game',
             'mask_shop':  'Shuffled Mask Shop',
             'unique_merchants':  'Unique Merchants',
+            'mask_shop_dual':  'Skull Mask/MoT'
         },
         gui_tooltip    = '''\
             This setting adds some hints at locations

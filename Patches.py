@@ -13,7 +13,7 @@ from Cutscenes import patch_cutscenes, patch_wondertalk2
 from Entrance import Entrance
 from HintList import get_hint
 from Hints import GossipText, HintArea, write_gossip_stone_hints, build_altar_hints, \
-        build_ganon_text, build_misc_item_hints, build_misc_location_hints, get_simple_hint_no_prefix, get_item_generic_name
+        build_ganon_text, build_misc_item_hints, build_misc_location_hints, build_misc_dual_hints, get_simple_hint_no_prefix, get_item_generic_name
 from Item import Item
 from ItemList import REWARD_COLORS
 from ItemPool import reward_list, song_list, trade_items, child_trade_items
@@ -1443,6 +1443,7 @@ def patch_rom(spoiler: Spoiler, world: World, rom: Rom) -> Rom:
 
     # build misc. location hints
     build_misc_location_hints(world, messages)
+    build_misc_dual_hints(world, messages)
 
     if 'mask_shop' in world.settings.misc_hints:
         rom.write_int32(rom.sym('CFG_MASK_SHOP_HINT'), 1)

@@ -4,7 +4,7 @@ from collections.abc import Callable, Iterable
 from enum import Enum
 from typing import TYPE_CHECKING, Optional, Any, overload
 
-from HintList import misc_item_hint_table, misc_location_hint_table
+from HintList import misc_item_hint_table, misc_location_hint_table, misc_dual_hint_table
 from LocationList import location_table, location_is_viewable, LocationAddress, LocationDefault, LocationFilterTags
 
 if TYPE_CHECKING:
@@ -144,6 +144,11 @@ class Location:
             the_location = self.world.misc_hint_locations[hint_type]
             if hint_type not in self.world.misc_hint_location_items and self.name == the_location:
                 self.world.misc_hint_location_items[hint_type] = self.item
+                logging.getLogger('').debug(f'{the_location} [{self.world.id}] set to [{self.item.name}]')
+        for hint_type in misc_dual_hint_table:
+            the_location = self.world.misc_dual_hint[hint_type]
+            if hint_type not in self.world.misc_dual_hint_items and self.name == the_location:
+                self.world.misc_dual_hint_items[hint_type] = self.item
                 logging.getLogger('').debug(f'{the_location} [{self.world.id}] set to [{self.item.name}]')
 
     def __str__(self) -> str:
