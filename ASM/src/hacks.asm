@@ -3611,16 +3611,16 @@ DemoEffect_DrawJewel_AfterHook:
     sh      t8, 0x0204(s0)
 
 ; Replaces: sw     t3, 0x0014($sp)
-            sw     t2, 0x0010($sp)
+;           sw     t2, 0x0010($sp)
 .orga 0xE94774
     jal     chestgame_initial_message
     sw      t3, 0x0014($sp)
 
 ; Allow TCG chests to open separately
 ; Skips this entire function func_80AC3A2C:
-.orga 0xE43874
-    jal     chestgame_open_chests_separately
-    or      a2, a0, $zero
+;.orga 0xE43874
+;    jal     chestgame_open_chests_separately
+;    or      a2, a0, $zero
 
 ; Skip instruction to reset TCG chest flags
 ; Replaces: sw     $zero, 0x1D38(t8)
@@ -4169,3 +4169,4 @@ DemoEffect_DrawJewel_AfterHook:
 .include "hacks/z_parameter.asm"
 .include "hacks/z_file_choose.asm"
 .include "hacks/ovl_en_ssh.asm"
+.include "hacks/ovl_en_changer.asm"
