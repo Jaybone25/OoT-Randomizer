@@ -2249,7 +2249,7 @@ def patch_rom(spoiler: Spoiler, world: World, rom: Rom) -> Rom:
             rom.write_byte(0x33A60AF, 0x80)
             rom.write_byte(0x33A60BF, 0x80)
             rom.write_byte(0x33A60CF, 0x80)
-    
+
     # Unpatch TCG Hacks
     if world.settings.shuffle_tcgkeys == 'vanilla':
         rom.revert_patch("TCG_SHUFFLE_PATCH_1")
