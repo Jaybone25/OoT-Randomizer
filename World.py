@@ -263,7 +263,7 @@ class World:
         self.dungeon_rewards_hinted: bool = settings.shuffle_mapcompass != 'remove' if settings.enhance_map_compass else 'altar' in settings.misc_hints
         self.misc_hint_items: dict[str, str] = {hint_type: self.hint_dist_user.get('misc_hint_items', {}).get(hint_type, data['default_item']) for hint_type, data in misc_item_hint_table.items()}
         self.misc_hint_locations: dict[str, str] = {hint_type: self.hint_dist_user.get('misc_hint_locations', {}).get(hint_type, data['item_location']) for hint_type, data in misc_location_hint_table.items()}
-
+        self.misc_dual_hint: dict[str, str] = {hint_type: self.hint_dist_user.get('misc_dual_hint', {}).get(hint_type, data) for hint_type, data in misc_dual_hint_table.items()}
         self.state: State = State(self)
 
         # Allows us to cut down on checking whether some items are required

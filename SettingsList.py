@@ -3543,6 +3543,8 @@ class SettingInfos:
             'mask_shop':  'Shuffled Mask Shop',
             'unique_merchants':  'Unique Merchants',
             'big_poes':  'Market Big Poes',
+            'skull_mask':     'Deku Theater Skull Mask',
+            'mask_of_truth':  'Deku Theater Mask of Truth',
         },
         gui_tooltip    = '''\
             This setting adds some hints at locations
@@ -3603,7 +3605,7 @@ class SettingInfos:
         shared         = True,
         default        = ['altar', 'ganondorf', 'warp_songs_and_owls'],
     )
-
+    
     correct_chest_appearances = Combobox(
         gui_text       = 'Chest Appearance Matches Contents',
         default        = 'off',

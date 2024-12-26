@@ -1875,6 +1875,7 @@ misc_location_hint_table: dict[str, dict[str, Any]] = {
         'item_location': 'Kak 10 Gold Skulltula Reward',
         'location_text': "Yeaaarrgh! I'm cursed!! Please save me by destroying \x05\x4110 Spiders of the Curse\x05\x40 and I will give you \x05\x42{item}\x05\x40.",
         'location_fallback': "Yeaaarrgh! I'm cursed!!",
+        'text_style': 0x23,
     },
     '20_skulltulas': {
         'id': 0x9005,
@@ -1882,6 +1883,7 @@ misc_location_hint_table: dict[str, dict[str, Any]] = {
         'item_location': 'Kak 20 Gold Skulltula Reward',
         'location_text': "Yeaaarrgh! I'm cursed!! Please save me by destroying \x05\x4120 Spiders of the Curse\x05\x40 and I will give you \x05\x42{item}\x05\x40.",
         'location_fallback': "Yeaaarrgh! I'm cursed!!",
+        'text_style': 0x23,
     },
     '30_skulltulas': {
         'id': 0x9006,
@@ -1889,6 +1891,7 @@ misc_location_hint_table: dict[str, dict[str, Any]] = {
         'item_location': 'Kak 30 Gold Skulltula Reward',
         'location_text': "Yeaaarrgh! I'm cursed!! Please save me by destroying \x05\x4130 Spiders of the Curse\x05\x40 and I will give you \x05\x42{item}\x05\x40.",
         'location_fallback': "Yeaaarrgh! I'm cursed!!",
+        'text_style': 0x23,
     },
     '40_skulltulas': {
         'id': 0x9007,
@@ -1896,6 +1899,7 @@ misc_location_hint_table: dict[str, dict[str, Any]] = {
         'item_location': 'Kak 40 Gold Skulltula Reward',
         'location_text': "Yeaaarrgh! I'm cursed!! Please save me by destroying \x05\x4140 Spiders of the Curse\x05\x40 and I will give you \x05\x42{item}\x05\x40.",
         'location_fallback': "Yeaaarrgh! I'm cursed!!",
+        'text_style': 0x23,
     },
     '50_skulltulas': {
         'id': 0x9008,
@@ -1903,6 +1907,15 @@ misc_location_hint_table: dict[str, dict[str, Any]] = {
         'item_location': 'Kak 50 Gold Skulltula Reward',
         'location_text': "Yeaaarrgh! I'm cursed!! Please save me by destroying \x05\x4150 Spiders of the Curse\x05\x40 and I will give you \x05\x42{item}\x05\x40.",
         'location_fallback': "Yeaaarrgh! I'm cursed!!",
+        'text_style': 0x23,
+    },
+    '100_skulltulas': {
+        'id': 0x9009,
+        'hint_location': '100 Skulltulas Reward Hint',
+        'item_location': 'Kak 100 Gold Skulltula Reward',
+        'location_text': "Yeaaarrgh! I'm cursed!! Please save me by destroying \x05\x41100 Spiders of the Curse\x05\x40 and I will give you \x05\x42{item}\x05\x40.",
+        'location_fallback': "Yeaaarrgh! I'm cursed!!",
+        'text_style': 0x23,
     },
     'frogs2': {
         'id': 0x022E,
@@ -1910,6 +1923,23 @@ misc_location_hint_table: dict[str, dict[str, Any]] = {
         'item_location': 'ZR Frogs Ocarina Game',
         'location_text': "Some frogs holding \x05\x42{item}\x05\x40 are looking at you from underwater...",
         'location_fallback': "Some frogs are looking at you from underwater...",
+        'text_style': 0x23,
+    },
+    'skull_mask': {
+        'id': 0x0344,
+        'hint_location': 'Deku Theater Skull Mask',
+        'item_location': 'Deku Theater Skull Mask',
+        'location_text': 'Bringing the \x05\x41Skull Mask\x05\x40 to Deku Theater will reward you with \x05\x42{item}\x05\x40',
+        'location_fallback': 'Forest Stage\x01\x01We are waiting to see your\x01beautiful face!\x01Win fabulous prizes!',
+        'text_style': 0x13,
+    },
+    'mask_of_truth': {
+        'id': 0x0344,
+        'hint_location': 'Deku Theater Mask of Truth',
+        'item_location': 'Deku Theater Mask of Truth',
+        'location_text': 'Bringing the \x05\x41Mask of Truth\x05\x40 to Deku Theater will reward you with \x05\x42{item}\x05\x40',
+        'location_fallback': 'Forest Stage\x01\x01We are waiting to see your\x01beautiful face!\x01Win fabulous prizes!',
+        'text_style': 0x13,
     },
     'big_poes': {
         'id': 0x70F5,
@@ -1917,6 +1947,20 @@ misc_location_hint_table: dict[str, dict[str, Any]] = {
         'item_location': 'Market 10 Big Poes',
         'location_text': "\x08Hey, young man. What's happening \x01today? Do you want\x01\x05\x41{item}\x05\x40?\x04\x1AIf you earn \x05\x41{poe_points} points\x05\x40, you'll\x01be a happy man! Heh heh.\x04\x08Your card now has \x05\x45\x1E\x01 \x05\x40points.\x01Come back again!\x01Heh heh heh!\x02",
         'location_fallback': "\x08Hey, young man. What's happening \x01today? If you have a \x05\x41Poe\x05\x40, I will \x01buy it.\x04\x1AIf you earn \x05\x41{poe_points} points\x05\x40, you'll\x01be a happy man! Heh heh.\x04\x08Your card now has \x05\x45\x1E\x01 \x05\x40points.\x01Come back again!\x01Heh heh heh!\x02",
+    },
+}
+
+misc_dual_hint_table: dict[str, dict[str, Any]] = {
+    'mask_shop_dual': {
+        'id': 0x0344,
+        'hint_location_0': 'Deku Theater Skull Mask',
+        'item_location_0': 'Deku Theater Skull Mask',
+        'hint_location_1': 'Deku Theater Mask of Truth',
+        'item_location_1': 'Deku Theater Mask of Truth',
+        'location_text_0': 'Bringing the \x05\x41Skull Mask\x05\x40 to Deku Theater will reward you with \x05\x42{item_1}\x05\x40',
+        'location_text_1': 'Bringing the \x05\x41Mark of Truth\x05\x40 to Deku Theater will reward you with \x05\x42{item_2}\x05\x40',
+        'location_text_2': '\x01Bringing the \x05\x41Skull Mask\x05\x40 to Deku Theater will reward you with \x05\x42{item_1}\x05\x40\x04Bringing the \x05\x41Mask of Truth\x05\x40 to Deku Theater will reward you with \x05\x42{item_2}\x05\x40',
+        'location_fallback': 'Forest Stage\x04\x04We are waiting to see your\x04beautiful face!\x04Win fabulous prizes!',
     },
 }
 
