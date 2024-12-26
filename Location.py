@@ -145,11 +145,16 @@ class Location:
             if hint_type not in self.world.misc_hint_location_items and self.name == the_location:
                 self.world.misc_hint_location_items[hint_type] = self.item
                 logging.getLogger('').debug(f'{the_location} [{self.world.id}] set to [{self.item.name}]')
-        for hint_type in misc_dual_hint_table:
-            the_location = self.world.misc_dual_hint[hint_type]
-            if hint_type not in self.world.misc_dual_hint_items and self.name == the_location:
-                self.world.misc_dual_hint_items[hint_type] = self.item
-                logging.getLogger('').debug(f'{the_location} [{self.world.id}] set to [{self.item.name}]')
+        for hint_type, data in misc_dual_hint_table.items():
+            for i in range(2):
+                key = 'item_location_'+ str(i)
+                if key not in data:
+                    break
+                item_location = data[key]
+                the_location = item_location
+                if hint_type not in self.world.misc_dual_hint_items and self.name == the_location:
+                    self.world.misc_dual_hint_items[hint_type + '_' + str(i)] = self.item
+                    logging.getLogger('').debug(f'{the_location} [{self.world.id}] set to [{self.item.name}]')
 
     def __str__(self) -> str:
         return self.name
