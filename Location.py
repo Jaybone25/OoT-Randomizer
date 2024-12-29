@@ -4,7 +4,7 @@ from collections.abc import Callable, Iterable
 from enum import Enum
 from typing import TYPE_CHECKING, Optional, Any, overload
 
-from HintList import misc_item_hint_table, misc_location_hint_table
+from HintList import misc_item_hint_table, misc_location_hint_table, misc_dual_hint_table
 from LocationList import location_table, location_is_viewable, LocationAddress, LocationDefault, LocationFilterTags
 
 if TYPE_CHECKING:

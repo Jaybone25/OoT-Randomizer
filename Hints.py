@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING, Optional
 from urllib.error import URLError, HTTPError
 
 from HintList import Hint, get_hint, get_multi, get_hint_group, get_upgrade_hint_list, hint_exclusions, \
-    misc_item_hint_table, misc_location_hint_table
+    misc_item_hint_table, misc_location_hint_table, misc_dual_hint_table
 from Item import Item, make_event_item
 from ItemList import REWARD_COLORS
 from Messages import Message, COLOR_MAP, update_message_by_id
@@ -1829,7 +1829,7 @@ def build_misc_location_hints(world: World, messages: list[Message]) -> None:
                                                                     world.settings.clearer_hints).text, poe_points=poe_points)
             else:
                 text = data['location_fallback'].format(poe_points=poe_points)
-            update_message_by_id(messages, data['id'], text)
+            update_message_by_id(messages, data['id'], text, data['text_style'])
             return
         else:
             if hint_type in world.settings.misc_hints:
@@ -1838,19 +1838,20 @@ def build_misc_location_hints(world: World, messages: list[Message]) -> None:
                     text = data['location_text'].format(item=get_hint(get_item_generic_name(item),
                                                                         world.settings.clearer_hints).text)
 
-            update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), data['text_style'], allow_duplicates=True)
-        if hint_type not in ['skull_mask', 'mask_of_truth'] and hint_type not in world.settings.misc_hints:
-            update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), data['text_style'], allow_duplicates=True) 
+                update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), data['text_style'], allow_duplicates=True)
+            #Allows for other misc hints to use 'location_fallback, but avoids the mask hints from being overwritten.    
+            if hint_type not in ['skull_mask', 'mask_of_truth'] and hint_type not in world.settings.misc_hints:
+                update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), data['text_style'], allow_duplicates=True) 
 
 def build_misc_dual_hints(world: World, messages: list[Message]) -> None:
     for hint_type, data in misc_dual_hint_table.items():
+        #Change misc_hints list to use the Skull Mask and Mask of Truth Dual hint
         if 'skull_mask' in world.settings.misc_hints and 'mask_of_truth' in world.settings.misc_hints:
             world.settings.misc_hints.remove('skull_mask')
             world.settings.misc_hints.remove('mask_of_truth')
             world.settings.misc_hints.append('mask_shop_dual')
         text = data['location_fallback']
         if hint_type in world.settings.misc_hints:
-            #if hint_type in world.misc_dual_hint_items:
             keys = list(world.misc_dual_hint_items.keys())
             items = []
             for key in keys:
@@ -1858,15 +1859,8 @@ def build_misc_dual_hints(world: World, messages: list[Message]) -> None:
                 items.append(item)
             item_1 = items[0]
             item_2 = items[1]
-            if data['item_location_0'] in world.settings.disabled_locations and data['item_location_1'] in world.settings.disabled_locations:
-                text = data['location_fallback']
-            elif data['item_location_0'] in world.settings.disabled_locations:
-                text = data['location_text_1'].format(item_2=get_hint(get_item_generic_name(item_2), world.settings.clearer_hints).text)
-            elif data['item_location_1'] in world.settings.disabled_locations:
-                text = data['location_text_0'].format(item_1=get_hint(get_item_generic_name(item_1), world.settings.clearer_hints).text)
-            else:
-                text = data['location_text_2'].format(item_1=get_hint(get_item_generic_name(item_1), world.settings.clearer_hints).text, item_2=get_hint(get_item_generic_name(item_2), world.settings.clearer_hints).text)
-            update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), 0x13, allow_duplicates=True)
+            text = data['location_text'].format(item_1=get_hint(get_item_generic_name(item_1), world.settings.clearer_hints).text, item_2=get_hint(get_item_generic_name(item_2), world.settings.clearer_hints).text)
+            update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), data['text_style'], allow_duplicates=True)
 
 
 

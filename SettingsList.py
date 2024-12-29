@@ -3601,6 +3601,15 @@ class SettingInfos:
 
             The Poe collector will tell the reward for selling
             him Big Poes.
+
+            The sign in Deku Theater will tell the reward for showing
+            the Skull Mask.
+
+            The sign in Deku Theater will tell the reward for showing 
+            the Mask of Truth.
+
+            If both Skull Mask and Mask of Truth are selected, the sign
+            in Deku Theater will tell the reward for both items.
         ''',
         shared         = True,
         default        = ['altar', 'ganondorf', 'warp_songs_and_owls'],
