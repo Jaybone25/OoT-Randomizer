@@ -3605,7 +3605,7 @@ class SettingInfos:
             The sign in Deku Theater will tell the reward for showing
             the Skull Mask.
 
-            The sign in Deku Theater will tell the reward for showing 
+            The sign in Deku Theater will tell the reward for showing
             the Mask of Truth.
 
             If both Skull Mask and Mask of Truth are selected, the sign
@@ -3614,7 +3614,7 @@ class SettingInfos:
         shared         = True,
         default        = ['altar', 'ganondorf', 'warp_songs_and_owls'],
     )
-    
+
     correct_chest_appearances = Combobox(
         gui_text       = 'Chest Appearance Matches Contents',
         default        = 'off',

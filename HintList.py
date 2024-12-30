@@ -1943,9 +1943,9 @@ misc_location_hint_table: dict[str, dict[str, Any]] = {
     },
 }
 
-#Adds capability for dual misc hints. Required keys "id" for text ID to replace. 'hint_location_0' and 'hint_location_1', name of the hint.  These must have _0 for the first hint and _1 for the second hint.
-#'item_location_0' and 'item_location_1' the location of the check per spoiler log.   This also must have _0 for the first location and _1 for the second location. 'location_text', is the text for the 
-#dual hint where item_1 is the item from item_location_0 and item_2 is the item from item_location_1.  'location_fallback', text to handle if the misc hint is not turned on. 'text_style', argument for text box style.
+# Adds capability for dual misc hints. Required keys "id" for text ID to replace. 'hint_location_0' and 'hint_location_1', name of the hint.  These must have _0 for the first hint and _1 for the second hint.
+# 'item_location_0' and 'item_location_1' the location of the check per spoiler log.   This also must have _0 for the first location and _1 for the second location. 'location_text', is the text for the
+# dual hint where item_1 is the item from item_location_0 and item_2 is the item from item_location_1.  'location_fallback', text to handle if the misc hint is not turned on. 'text_style', argument for text box style.
 misc_dual_hint_table: dict[str, dict[str, Any]] = {
     'mask_shop_dual': {
         'id': 0x0344,

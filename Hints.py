@@ -1839,13 +1839,13 @@ def build_misc_location_hints(world: World, messages: list[Message]) -> None:
                                                                         world.settings.clearer_hints).text)
 
                 update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), data['text_style'], allow_duplicates=True)
-            #Allows for other misc hints to use 'location_fallback, but avoids the mask hints from being overwritten.    
+            # Allows for other misc hints to use 'location_fallback, but avoids the mask hints from being overwritten.
             if hint_type not in ['skull_mask', 'mask_of_truth'] and hint_type not in world.settings.misc_hints:
-                update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), data['text_style'], allow_duplicates=True) 
+                update_message_by_id(messages, data['id'], str(GossipText(text, ['Green'], prefix='')), data['text_style'], allow_duplicates=True)
 
 def build_misc_dual_hints(world: World, messages: list[Message]) -> None:
     for hint_type, data in misc_dual_hint_table.items():
-        #Change misc_hints list to use the Skull Mask and Mask of Truth Dual hint
+        # Change misc_hints list to use the Skull Mask and Mask of Truth Dual hint
         if 'skull_mask' in world.settings.misc_hints and 'mask_of_truth' in world.settings.misc_hints:
             world.settings.misc_hints.remove('skull_mask')
             world.settings.misc_hints.remove('mask_of_truth')

@@ -150,8 +150,7 @@ class Location:
                 key = 'item_location_'+ str(i)
                 if key not in data:
                     break
-                item_location = data[key]
-                the_location = item_location
+                the_location = data[key]
                 if hint_type not in self.world.misc_dual_hint_items and self.name == the_location:
                     self.world.misc_dual_hint_items[hint_type + '_' + str(i)] = self.item
                     logging.getLogger('').debug(f'{the_location} [{self.world.id}] set to [{self.item.name}]')
