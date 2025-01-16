@@ -197,6 +197,7 @@ class GetItemId(IntEnum):
     GI_SMALL_KEY_THIEVES_HIDEOUT = 0x00B6
     GI_SMALL_KEY_GANONS_CASTLE = 0x00B7
 
+
     GI_DOUBLE_DEFENSE = 0x00B8
     GI_MAGIC_METER = 0x00B9
     GI_DOUBLE_MAGIC = 0x00BA
@@ -319,8 +320,9 @@ class GetItemId(IntEnum):
     GI_WATER_MEDALLION = 0x012D
     GI_SHADOW_MEDALLION = 0x012E
     GI_SPIRIT_MEDALLION = 0x012F
+    GI_SMALL_KEY_UNIVERSAL = 0x0130
 
-    GI_RANDO_MAX = 0x0130
+    GI_RANDO_MAX = 0x0131
 
 # Progressive: True  -> Advancement
 #              False -> Priority
@@ -473,6 +475,7 @@ item_table: dict[str, tuple[str, Optional[bool], Optional[int], Optional[dict[st
     'Small Key (Gerudo Training Ground)':              ('SmallKey', True,  GetItemId.GI_SMALL_KEY_GERUDO_TRAINING, {'progressive': float('Inf')}),
     'Small Key (Thieves Hideout)':              ('HideoutSmallKey', True,  GetItemId.GI_SMALL_KEY_THIEVES_HIDEOUT, {'progressive': float('Inf')}),
     'Small Key (Ganons Castle)':                       ('SmallKey', True,  GetItemId.GI_SMALL_KEY_GANONS_CASTLE, {'progressive': float('Inf')}),
+    'Small Key (Universal)':                           ('SmallKey', True,  GetItemId.GI_SMALL_KEY_UNIVERSAL, {'progressive': float('Inf')}),
     'Double Defense':                                  ('Item',     None,  GetItemId.GI_DOUBLE_DEFENSE, None),
     'Buy Magic Bean':                                  ('Item',     True,  GetItemId.GI_MAGIC_BEAN, {'alias': ('Magic Bean', 10), 'progressive': 10}),
     'Magic Bean Pack':                                 ('Item',     True,  GetItemId.GI_MAGIC_BEAN_PACK, {'alias': ('Magic Bean', 10), 'progressive': 10}),

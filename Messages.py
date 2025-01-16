@@ -486,6 +486,9 @@ for dungeon_name in dungeon_names:
         KEYSANITY_MESSAGES.append((i, f"\x13\x77\x08You found a \x05\x41Small Key\x05\x40\x01for {dungeon_name}!\x01You already have enough keys.\x09"))
     i += 1
 
+# Append message for Universal (retro) Keys to show count.
+KEYSANITY_MESSAGES.append((0x9140, f"\x13\x77\x08You found a \x05\x41Small Key\x05\x40\x01for TEST!\x01You've collected \x05\x41" + "\xF1" + 0x03.to_bytes(1, 'big').decode() + "\x05\x40 of them.\x09"))
+
 # Add key ring messages starting at 0x9200
 i = 0x9200
 for dungeon_name in dungeon_names:

@@ -114,7 +114,7 @@ class Dungeon:
     def get_restricted_dungeon_items(self) -> Iterator[Item]:
         if self.shuffle_mapcompass == 'dungeon' or (self.empty and self.shuffle_mapcompass in ['any_dungeon', 'overworld', 'keysanity', 'regional']):
             yield from self.dungeon_items
-        if self.shuffle_smallkeys == 'dungeon' or (self.empty and self.shuffle_smallkeys in ['any_dungeon', 'overworld', 'keysanity', 'regional']):
+        if self.shuffle_smallkeys == 'dungeon' or (self.empty and self.shuffle_smallkeys in ['any_dungeon', 'overworld', 'keysanity', 'regional', 'retro']):
             yield from self.small_keys
         if self.shuffle_bosskeys == 'dungeon' or (self.empty and self.shuffle_bosskeys in ['any_dungeon', 'overworld', 'keysanity', 'regional']):
             yield from self.boss_key
@@ -129,7 +129,7 @@ class Dungeon:
             return
         if self.shuffle_mapcompass in ['any_dungeon', 'overworld', 'keysanity', 'regional']:
             yield from self.dungeon_items
-        if self.shuffle_smallkeys in ['any_dungeon', 'overworld', 'keysanity', 'regional']:
+        if self.shuffle_smallkeys in ['any_dungeon', 'overworld', 'keysanity', 'regional', 'retro']:
             yield from self.small_keys
         if self.shuffle_bosskeys in ['any_dungeon', 'overworld', 'keysanity', 'regional']:
             yield from self.boss_key

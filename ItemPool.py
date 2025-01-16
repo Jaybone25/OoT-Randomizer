@@ -508,11 +508,13 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
                 pending_junk_pool.append('Small Key (Treasure Chest Game)')
         if world.settings.shuffle_gerudo_card:
             pending_junk_pool.append('Gerudo Membership Card')
-        if world.settings.shuffle_smallkeys in ('any_dungeon', 'overworld', 'keysanity', 'regional'):
+        if world.settings.shuffle_smallkeys in ('any_dungeon', 'overworld', 'keysanity', 'regional', 'retro'):
             for dungeon in ('Forest Temple', 'Fire Temple', 'Water Temple', 'Shadow Temple', 'Spirit Temple',
                             'Bottom of the Well', 'Gerudo Training Ground', 'Ganons Castle'):
                 if world.keyring(dungeon):
                     pending_junk_pool.append(f"Small Key Ring ({dungeon})")
+                elif world.settings.shuffle_smallkeys == 'retro':
+                    pending_junk_pool.append(f"Small Key (Universal)")
                 else:
                     pending_junk_pool.append(f"Small Key ({dungeon})")
         if world.settings.shuffle_bosskeys in ('any_dungeon', 'overworld', 'keysanity', 'regional'):

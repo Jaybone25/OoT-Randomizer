@@ -7,6 +7,8 @@
 #define rupee_cap ((uint16_t*)0x800F8CEC)
 volatile uint8_t MAX_RUPEES = 0;
 
+extern uint8_t RETRO_KEYS;
+
 typedef void (*commit_scene_flags_fn)(z64_game_t* game_ctxt);
 #define commit_scene_flags ((commit_scene_flags_fn)0x8009D894)
 typedef void (*save_game_fn)(void* unk);
@@ -94,6 +96,29 @@ void give_small_key(z64_file_t* save, int16_t dungeon_id, int16_t arg2) {
     if (total_keys < max_keys) {
         save->scene_flags[dungeon_id].unk_00_ = (flag & 0x0000ffff) | ((total_keys + 1) << 0x10);
     }
+}
+
+void give_universal_small_key(z64_file_t* save, int16_t dungeon_id, int16_t arg2) {
+    for (dungeon_id = DEKU_ID; dungeon_id <= TCG_ID; dungeon_id++) { 
+       // dungeon_id = dungeon[i];
+        int8_t current_keys = save->dungeon_keys[dungeon_id] > 0 ? save->dungeon_keys[dungeon_id] : 0;
+        save->dungeon_keys[dungeon_id] = current_keys + 1;
+        uint32_t flag = save->scene_flags[dungeon_id].unk_00_;
+        int8_t total_keys = flag >> 0x10;
+        save->scene_flags[dungeon_id].unk_00_ = (flag & 0x0000ffff) | ((total_keys + 1) << 0x10);
+    }
+}
+
+void use_universal_small_key(z64_file_t* save, int16_t dungeon_id, int16_t arg2) {
+    if (RETRO_KEYS == 1) {
+        for (dungeon_id = DEKU_ID; dungeon_id <= TCG_ID; dungeon_id++) {
+            int8_t current_keys = save->dungeon_keys[dungeon_id] > 0 ? save->dungeon_keys[dungeon_id] : 0;
+            save->dungeon_keys[dungeon_id] = current_keys - 1;
+            uint32_t flag = save->scene_flags[dungeon_id].unk_00_;
+            int8_t total_keys = flag >> 0x10;
+            save->scene_flags[dungeon_id].unk_00_ = (flag & 0x0000ffff) | ((total_keys - 1) << 0x10);
+        }
+   }
 }
 
 void give_small_key_ring(z64_file_t* save, int16_t dungeon_id, int16_t arg2) {

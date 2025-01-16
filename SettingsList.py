@@ -2648,6 +2648,7 @@ class SettingInfos:
             'overworld':   'Overworld Only',
             'any_dungeon': 'Any Dungeon',
             'keysanity':   'Anywhere (Keysanity)',
+            'retro':       'Retro Keys',
         },
         gui_tooltip    = '''\
             'Remove': Small Keys are removed. All locked doors in dungeons

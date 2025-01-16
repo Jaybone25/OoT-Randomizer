@@ -221,6 +221,7 @@ item_row_t item_table[GI_RANDO_MAX] = {
     [GI_SMALL_KEY_GERUDO_TRAINING]                              = ITEM_ROW(0x53,      SILVER_CHEST, 0x41, -1, 0x009F, 0x00AA, 0x02, upgrade_key_model, give_small_key, GTG_ID,    -1, resolve_text_small_keys), // Gerudo Training Small Key
     [GI_SMALL_KEY_THIEVES_HIDEOUT]                              = ITEM_ROW(0x53,      SILVER_CHEST, 0x41, -1, 0x00A0, 0x00AA, 0x02, upgrade_key_model, give_small_key, FORT_ID,   -1, resolve_text_small_keys), // Thieves' Hideout Small Key
     [GI_SMALL_KEY_GANONS_CASTLE]                                = ITEM_ROW(0x53,      SILVER_CHEST, 0x41, -1, 0x00A1, 0x00AA, 0x02, upgrade_key_model, give_small_key, CASTLE_ID, -1, resolve_text_small_keys), // Ganon's Castle Small Key
+    [GI_SMALL_KEY_UNIVERSAL]                                    = ITEM_ROW(0x53,      SILVER_CHEST, 0x41, -1, 0x0060, 0x00AA, 0x02, upgrade_key_model, give_universal_small_key, -1, -1, resolve_text_universal_small_keys), // Universal Small Key
 
     [GI_DOUBLE_DEFENSE]                                         = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x00E9, 0x0194, 0x13, no_upgrade, give_defense,      -1, -1, NULL), // Double Defense
     [GI_MAGIC_METER]                                            = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x00E4, 0x01B4, 0xA0, no_upgrade, give_magic,        -1, -1, NULL), // Magic Meter
@@ -420,6 +421,18 @@ uint16_t resolve_text_small_keys(item_row_t* item_row, bool is_outgoing) {
     } else {
         // Show number collected.
         return 0x9112 + dungeon_id;
+    }
+}
+
+uint16_t resolve_text_universal_small_keys(item_row_t* item_row, bool is_outgoing) {
+    int16_t dungeon_id = FOREST_ID;
+    uint32_t flag = z64_file.scene_flags[FOREST_ID].unk_00_;
+    int8_t total_keys = flag >> 0x10;
+    if (total_keys == 0) {
+        return 0x9140;
+    }
+    else {
+        return 0x9140;
     }
 }
 
