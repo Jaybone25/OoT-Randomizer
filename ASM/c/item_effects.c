@@ -110,7 +110,7 @@ void give_universal_small_key(z64_file_t* save, int16_t dungeon_id, int16_t arg2
 }
 
 void use_universal_small_key(z64_file_t* save, int16_t dungeon_id, int16_t arg2) {
-    if (RETRO_KEYS == 1) {
+    if (RETRO_KEYS) {
         for (dungeon_id = DEKU_ID; dungeon_id <= TCG_ID; dungeon_id++) {
             int8_t current_keys = save->dungeon_keys[dungeon_id] > 0 ? save->dungeon_keys[dungeon_id] : 0;
             save->dungeon_keys[dungeon_id] = current_keys - 1;

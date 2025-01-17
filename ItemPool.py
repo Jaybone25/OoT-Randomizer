@@ -879,7 +879,7 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
                     world.state.collect(ItemFactory(item, world))
                     item = get_junk_item()[0]
                     shuffle_item = True
-                elif shuffle_setting in ('any_dungeon', 'overworld', 'keysanity', 'regional', 'anywhere') and not world.empty_dungeons[dungeon.name].empty:
+                elif shuffle_setting in ('any_dungeon', 'overworld', 'keysanity', 'regional', 'anywhere','retro') and not world.empty_dungeons[dungeon.name].empty:
                     shuffle_item = True
                 elif shuffle_item is None:
                     dungeon_collection.append(ItemFactory(item, world))
